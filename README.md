@@ -1,8 +1,12 @@
 # flutter_cource
 
-A new Flutter project.
+https://www.udemy.com/learn-flutter-dart-to-build-ios-android-apps/
 
-## Getting Started
+## Document
+- Flutter
 
-For help getting started with Flutter, view our online
-[documentation](https://flutter.io/).
+https://flutter.io/
+
+- Dart2
+
+https://www.dartlang.org/
