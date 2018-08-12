@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_cource/pages/products.dart';
+import 'package:flutter_cource/pages/product_create.dart';
+import 'package:flutter_cource/pages/product_list.dart';
 
 class ProductsAdminPage extends StatelessWidget {
   @override
@@ -18,12 +20,7 @@ class ProductsAdminPage extends StatelessWidget {
               ListTile(
                 title: Text('All Products'),
                 onTap: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder: (BuildContext context) => ProductsPage(),
-                    ),
-                  );
+                  Navigator.pushReplacementNamed(context, '/');
                 },
               )
             ],
@@ -34,17 +31,22 @@ class ProductsAdminPage extends StatelessWidget {
           bottom: TabBar(
             tabs: <Widget>[
               Tab(
-                child: Text('Create Product'),
+                icon: Icon(Icons.create),
+                text: 'Create Product',
               ),
               Tab(
-                child: Text('My Product'),
+                icon: Icon(Icons.list ),
+                text: 'My Product',
               ),
             ],
           ),
         ),
-        body: Center(
-          child: Text('sample'),
-        ),
+        body: TabBarView(
+          children: <Widget>[
+            ProductCreatePage(),
+            ProductListPage()
+          ],
+        )
       ),
     );
   }
