@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_cource/pages/auth.dart';
 import 'package:flutter_cource/pages/products_admin.dart';
 import 'package:flutter_cource/pages/products.dart';
 import 'package:flutter_cource/pages/product.dart';
@@ -11,15 +10,15 @@ void main() {
 
 class MyApp extends StatefulWidget {
   @override
-    State<StatefulWidget> createState() {
-      return _MyAppState();
-    }
+  State<StatefulWidget> createState() {
+    return _MyAppState();
+  }
 }
 
 class _MyAppState extends State<MyApp> {
-  List<Map<String, String>> _products = [];
+  List<Map<String, dynamic>> _products = [];
 
-    void _addProducts(Map<String, String> product) {
+  void _addProducts(Map<String, dynamic> product) {
     setState(() {
       _products.add(product);
     });
@@ -40,8 +39,9 @@ class _MyAppState extends State<MyApp> {
           accentColor: Colors.deepPurple),
       // home: AuthPage(),
       routes: {
-        '/': (BuildContext context) => ProductsPage(this._products, this._addProducts, this._deleteProduct),
-        '/admin': (BuildContext context) => ProductsAdminPage(),
+        '/': (BuildContext context) => ProductsPage(this._products),
+        '/admin': (BuildContext context) =>
+            ProductsAdminPage(this._addProducts, this._deleteProduct),
       },
       onGenerateRoute: (RouteSettings settings) {
         final List<String> pathElements = settings.name.split('/');
@@ -62,7 +62,7 @@ class _MyAppState extends State<MyApp> {
       onUnknownRoute: (RouteSettings setteings) {
         print('onUnknownRoute: this Route is unknown');
         return MaterialPageRoute(
-          builder: (BuildContext context) => ProductsPage(this._products, this._addProducts, this._deleteProduct),
+          builder: (BuildContext context) => ProductsPage(this._products),
         );
       },
     );
