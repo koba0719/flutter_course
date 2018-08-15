@@ -14,4 +14,6 @@ https://www.dartlang.org/
 ## 進捗状況
 - section6 08/11〜08/12
 
-- section7 08/12〜割り込みタスクのため中断(8/13)
+- section7 08/12〜08/13
+
+- section8 08/13〜
