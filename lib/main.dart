@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_cource/pages/products_admin.dart';
 import 'package:flutter_cource/pages/products.dart';
 import 'package:flutter_cource/pages/product.dart';
+import 'package:flutter_cource/pages/auth.dart';
 
 void main() {
   runApp(MyApp());
@@ -37,9 +38,9 @@ class _MyAppState extends State<MyApp> {
           brightness: Brightness.light,
           primarySwatch: Colors.deepOrange,
           accentColor: Colors.deepPurple),
-      // home: AuthPage(),
       routes: {
-        '/': (BuildContext context) => ProductsPage(this._products),
+        '/': (BuildContext context) => AuthPage(),
+        '/products': (BuildContext context) => ProductsPage(this._products),
         '/admin': (BuildContext context) =>
             ProductsAdminPage(this._addProducts, this._deleteProduct),
       },
@@ -59,7 +60,7 @@ class _MyAppState extends State<MyApp> {
           );
         }
       },
-      onUnknownRoute: (RouteSettings setteings) {
+      onUnknownRoute: (RouteSettings settings) {
         print('onUnknownRoute: this Route is unknown');
         return MaterialPageRoute(
           builder: (BuildContext context) => ProductsPage(this._products),

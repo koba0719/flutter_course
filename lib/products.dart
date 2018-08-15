@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_cource/pages/product.dart';
-
 class Products extends StatelessWidget {
   final List<Map<String, dynamic>> products;
 
