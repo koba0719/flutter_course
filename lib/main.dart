@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 import 'package:flutter_cource/pages/products_admin.dart';
 import 'package:flutter_cource/pages/products.dart';
@@ -6,6 +7,7 @@ import 'package:flutter_cource/pages/product.dart';
 import 'package:flutter_cource/pages/auth.dart';
 
 void main() {
+//  debugPaintSizeEnabled = true;
   runApp(MyApp());
 }
 
@@ -37,7 +39,8 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
           brightness: Brightness.light,
           primarySwatch: Colors.deepOrange,
-          accentColor: Colors.deepPurple),
+          accentColor: Colors.deepPurple,
+      ),
       routes: {
         '/': (BuildContext context) => AuthPage(),
         '/products': (BuildContext context) => ProductsPage(this._products),
@@ -56,6 +59,8 @@ class _MyAppState extends State<MyApp> {
             builder: (BuildContext context) => ProductPage(
                   _products[index]['title'],
                   _products[index]['image'],
+                  _products[index]['price'],
+                  _products[index]['description']
                 ),
           );
         }
